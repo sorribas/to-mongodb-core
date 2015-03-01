@@ -1,6 +1,8 @@
 to-mongodb-core
 ===============
 
+[![build status](https://secure.travis-ci.org/sorribas/to-mongodb-core.png)](http://travis-ci.org/sorribas/to-mongodb-core)
+
 Gets the underlying mongodb-core instance in the passed mongodb-native or mongojs instance.
 
 Usage

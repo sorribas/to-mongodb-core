@@ -1,13 +1,3 @@
-var isDriverDb = function(db) {
-  if (typeof db.admin !== 'function') return false;
-  if (typeof db.close !== 'function') return false;
-  if (typeof db.collection !== 'function') return false;
-  if (!db.s || typeof db.s.topology !== 'object') return false;
-  if (typeof db._getServer !== 'undefined') return false;
-
-  return true;
-};
-
 var isMongojsDb = function(db) {
   if (typeof db.close !== 'function') return false;
   if (typeof db.collection !== 'function') return false;
@@ -18,7 +8,6 @@ var isMongojsDb = function(db) {
 };
 
 module.exports = function(db, cb) {
-  if (isDriverDb(db)) return cb(null, db.s.topology);
   if (isMongojsDb(db)) {
     db._getServer(function(err, srv) {
       if (err) return cb(err);
@@ -27,5 +16,5 @@ module.exports = function(db, cb) {
     return;
   }
 
-  cb(new Error('Unrecognized mongodb or mongojs instance. Only mongodb-native 2.x is supported.'));
+  cb(new Error('Unrecognized mongojs instance. Only mongojs +1 supported.'));
 };

@@ -17,20 +17,6 @@ test('mongojs', function(t) {
   });
 });
 
-test('mongodb 2.x', function(t) {
-  MongoClient.connect('mongodb://localhost:27017/test', function(err, db) {
-    t.notOk(err);
-    toMongodbCore(db, function(err, srv) {
-      t.notOk(err);
-      srv.command('test.$cmd', {ping: 1}, function(err, ok) {
-        t.notOk(err);
-        t.equal(ok.result.ok, 1);
-        t.end();
-      });
-    });
-  });
-});
-
 test('end', function(t) {
   t.end();
   process.exit();

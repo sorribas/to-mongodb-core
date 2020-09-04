@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/sorribas/to-mongodb-core",
   "devDependencies": {
-    "mongodb": "^2.0.18",
+    "mongodb": "^3.6.1",
     "mongodb-core": "^1.1.14",
     "mongojs": "mafintosh/mongojs#mongodb-core",
     "tape": "^3.5.0"
